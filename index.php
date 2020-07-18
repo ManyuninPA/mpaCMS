@@ -1,4 +1,6 @@
 <?require_once ($_SERVER['DOCUMENT_ROOT'].'/config.php');
 
-    $page = new Page();
-    $page->IncludeComponent('system:list', '', array());
+    $SITE->SetTemplate('New');
+    $SITE->Template()->Header();
+    $SITE->IncludeComponent('system:list', '', array());
+    $SITE->Template()->Footer();

@@ -19,7 +19,8 @@ try {
 
     Tools::defineConstants($CMS_CONF);
 
-    $db = Mysql::create(DB_HOST, DB_LOGIN, DB_PASS)->setDatabaseName(BD_DATABASE)->setCharset(DB_CHARSET);
+    $DB = Mysql::create(DB_HOST, DB_LOGIN, DB_PASS)->setDatabaseName(BD_DATABASE)->setCharset(DB_CHARSET);
+    $SITE = new Site();
 
 } catch (Exception $ex) {
     echo "При загрузке конфигураций возникла проблема!<br><br>";

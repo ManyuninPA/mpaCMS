@@ -51,7 +51,7 @@
  */
 
 class Session {
-    private static $lifetime = 1200000; // 14 дней
+    private static $lifetime = 1200000;
     private static $cookieName = "cid";
     private static $started = false;
  

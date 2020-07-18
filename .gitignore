@@ -1,4 +1,10 @@
 .idea
-examples_pages
-assets/img
-assets/img-temp
+cms/assets/img
+cms/assets/img-temp
+/cms/about-me.html
+/cms/about-us.html
+/cms/contacts.html
+/cms/home-page.html
+/cms/index.html
+/cms/services.html
+/cms/starter-template.html
