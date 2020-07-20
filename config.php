@@ -20,6 +20,9 @@ try {
     Tools::defineConstants($CMS_CONF);
 
     $DB = Mysql::create(DB_HOST, DB_LOGIN, DB_PASS)->setDatabaseName(BD_DATABASE)->setCharset(DB_CHARSET);
+
+    include 'cms/init.php';
+
     $SITE = new Site();
 
 } catch (Exception $ex) {
