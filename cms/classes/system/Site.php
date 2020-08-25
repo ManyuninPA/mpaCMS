@@ -1,16 +1,16 @@
 <?
 class Site{
-    protected static $template;
-    protected static $pages = [];
+    protected $template;
+    protected $pages = [];
 
     function __construct(){
-        self::$template = new Template();
-        self::SetTemplate('Default');
+        $this->template = new Template();
+        $this->SetTemplate('Default');
         $page_file = glob_tree_files('.');
         foreach ($page_file as $file){
             $page = new Page();
             $page->SetPath($file);
-            self::$pages[] = $page;
+            $this->pages[] = $page;
         }
     }
 
@@ -25,15 +25,15 @@ class Site{
     }
 
     public function SetTemplate($template_name){
-        self::$template->SetTemplate($template_name);
+        $this->template->SetTemplate($template_name);
     }
 
     public function Template(){
-        return self::$template;
+        return $this->template;
     }
 
     public function Pages(){
-        return self::$pages;
+        return $this->pages;
     }
 
     public function SetTitle(){
@@ -95,19 +95,18 @@ class Site{
 }
 
 class Template {
-    protected static $template_name;
-    protected static $arCSS = [];
-    protected static $arJS = [];
-
+    protected $template_name;
+    protected $arCSS = [];
+    protected $arJS = [];
 
     public function SetTemplate($name){
-        self::$template_name = $name;
+        $this->template_name = $name;
     }
     public function Header(){
-        require(TEMPLATE_PATH . '/' . self::$template_name . '/header.php');
+        require(TEMPLATE_PATH . '/' . $this->template_name . '/header.php');
     }
     public function Footer(){
-        require(TEMPLATE_PATH . '/' . self::$template_name . '/footer.php');
+        require(TEMPLATE_PATH . '/' . $this->template_name . '/footer.php');
     }
     public function AddCSS(){
 
@@ -119,16 +118,16 @@ class Template {
 }
 
 class Page {
-    protected static $path = '';
-    protected static $arCSS = [];
-    protected static $arJS = [];
+    protected $path = '';
+    protected $arCSS = [];
+    protected $arJS = [];
 
     public function SetPath($path){
-        self::$path = $path;
+        $this->path = $path;
     }
 
     public function GetPath(){
-        return self::$path;
+        return $this->path;
     }
 
     public function AddCSS(){

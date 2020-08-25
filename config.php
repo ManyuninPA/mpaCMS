@@ -13,16 +13,13 @@ try {
     $CMS_CONF["TEMPLATE_PATH"] = "cms/templates";
     $CMS_CONF["COMPONENT_PATH"] = "cms/components";
 
-    require_once($CMS_CONF["CLASS_PATH"] . "/autoload.php");
-
     include 'config-local.php';
 
+    require_once($CMS_CONF["CLASS_PATH"] . "/autoload.php");
     Tools::defineConstants($CMS_CONF);
-
     $DB = Mysql::create(DB_HOST, DB_LOGIN, DB_PASS)->setDatabaseName(BD_DATABASE)->setCharset(DB_CHARSET);
 
     include 'cms/init.php';
-
     $SITE = new Site();
 
 } catch (Exception $ex) {
